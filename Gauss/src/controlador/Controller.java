@@ -46,7 +46,7 @@ public class Controller {
 
 			// Si no pudo encontrar un valor diferente de cero para hacerlo la fila pivote 
 			if (filaPivote == -1) {
-				this.vista.print("PASO: "+ paso +", Este sistema tiene infinitas soluciones\n");
+				this.vista.print("PASO: "+ paso +", Este sistema no tiene una única solución\n");
 				this.vista.print(this.matriz.printMatriz());
 				System.exit(0);
 			}
