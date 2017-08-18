@@ -1,0 +1,73 @@
+package view;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class GuiLogin extends JFrame  {
+	
+	public GuiLogin(){
+		
+		//Parametros de la ventana
+		Toolkit screenU = Toolkit.getDefaultToolkit();
+		Dimension screenSize = screenU.getScreenSize();
+		int heightMyScreen = screenSize.height;
+		int widthMyScreen = screenSize.width;
+		setBounds(400,200,widthMyScreen/2, heightMyScreen/2);
+		setTitle("Pagina de Inicio de Sesión");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Lienzos
+		LienzoB esp1 = new LienzoB();
+		add(esp1, BorderLayout.NORTH);
+		LienzoB esp2 = new LienzoB();
+		add(esp2, BorderLayout.WEST);
+		LienzoB esp3 = new LienzoB();
+		add(esp3, BorderLayout.EAST);
+		Lienzo2 camposT3 = new Lienzo2();
+		add(camposT3, BorderLayout.CENTER);
+		
+		Lienzo login = new Lienzo();
+		add(login, BorderLayout.SOUTH);
+		setVisible(true);
+		
+	}
+
+}
+
+class Lienzo extends JPanel {
+	
+	public  Lienzo(){
+			
+		add(new JButton("Ingresar"));
+		
+	}
+	
+	
+}
+
+class Lienzo2 extends JPanel{
+	
+	public Lienzo2(){
+		
+		setLayout(new GridLayout(7,1));
+		JLabel etiquetaU = new JLabel("Usuario");
+		add(etiquetaU);
+		JTextField usuario = new JTextField ("Ingrese su usuario o Email", 20);
+		add(usuario);
+		JLabel etiquetaC = new JLabel("Contraseña");
+		add(etiquetaC);
+		JTextField contraseña = new JTextField ("Ingrese su contraseña", 20);
+		add(contraseña);
+	}
+}
+
+class LienzoB extends JPanel{
+	
+	public LienzoB(){
+		setSize(1,1);
+	}
+}
+
+
+

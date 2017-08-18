@@ -1,0 +1,21 @@
+package view;
+
+import java.awt.*;
+
+import javax.swing.*;
+
+public class GuiTarea {
+	
+	public GuiTarea(){
+		//Especificaciones de la ventana
+		Toolkit screenU = Toolkit.getDefaultToolkit();
+		Dimension screenSize = screenU.getScreenSize();
+		int heightMyScreen = screenSize.height;
+		int widthMyScreen = screenSize.width;
+		setBounds(400,200,widthMyScreen/2, heightMyScreen/2);
+		setTitle("Pagina Principal");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}

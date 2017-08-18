@@ -1,0 +1,48 @@
+package view;
+
+import java.awt.*;
+
+import javax.swing.*;
+
+public class GuiTarea extends JFrame {
+	
+	public GuiTarea(){
+		//Especificaciones de la ventana
+		Toolkit screenU = Toolkit.getDefaultToolkit();
+		Dimension screenSize = screenU.getScreenSize();
+		int heightMyScreen = screenSize.height;
+		int widthMyScreen = screenSize.width;
+		setBounds(400,200,widthMyScreen/2, heightMyScreen/2);
+		setTitle("Pagina Principal");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Lienzos
+	}
+
+}
+class LienzoT extends JPanel{
+
+	public LienzoT() {
+			
+		setLayout(new GridLayout(7, 1));
+		add(new JButton("Asignar Tarea"));
+		LienzoPB blan1 = new LienzoPB();
+		add(blan1);		
+		add(new JButton("Consultar Tarea"));
+		LienzoPB blan2 = new LienzoPB();
+		add(blan2);
+		add(new JButton("Registrar Avance"));
+		LienzoPB blan3 = new LienzoPB();
+		add(blan3);
+		add(new JButton("Generar Informe"));
+		
+	}
+}
+
+class LienzoTB extends JPanel {
+
+	public LienzoTB() {
+		setSize(1,1);
+	}
+}

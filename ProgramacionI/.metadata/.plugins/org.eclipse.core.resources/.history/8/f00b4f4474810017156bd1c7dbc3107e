@@ -1,0 +1,50 @@
+package view;
+
+import java.awt.*;
+
+import javax.swing.*;
+
+public class GuiTarea extends JFrame {
+	
+	public GuiTarea(){
+		//Especificaciones de la ventana
+		Toolkit screenU = Toolkit.getDefaultToolkit();
+		Dimension screenSize = screenU.getScreenSize();
+		int heightMyScreen = screenSize.height;
+		int widthMyScreen = screenSize.width;
+		setBounds(400,200,widthMyScreen/2, heightMyScreen/2);
+		setTitle("Consultar Tareas");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Lienzos
+		
+		
+	}
+
+}
+class LienzoT extends JPanel{
+
+	public LienzoT() {
+			
+		setLayout(new GridLayout(7, 1));
+		JLabel etiquetaU = new JLabel("Seleccione el proyecto");
+		etiquetaU.setHorizontalAlignment(getWidth());
+		add(etiquetaU);
+		JTextField usuario = new JTextField("Ingrese su usuario o Email", 20);
+		add(usuario);
+		JLabel etiquetaC = new JLabel("Seleccione el rol");
+		etiquetaC.setHorizontalAlignment(getWidth());
+		add(etiquetaC);
+		JTextField contraseña = new JTextField("Ingrese su contraseña", 20);
+		add(contraseña);
+		
+	}
+}
+
+class LienzoTB extends JPanel {
+
+	public LienzoTB() {
+		setSize(1,1);
+	}
+}
