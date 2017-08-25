@@ -6,6 +6,7 @@ public class DarthVader {
 	
 	//Instancias
 	private UnidadesDC udc;
+	private DivisoresEI divisores;
 	
 	//constructor
 	public DarthVader() {
@@ -14,9 +15,14 @@ public class DarthVader {
 	
 	//Metodos
 	
-	public String EnviarDatosUDC (String numeroC) {
+	public String enviarDatosUDC (String numeroC) {
 		String respuesta = udc.verificaUDC(numeroC);
 		return respuesta;
+	}
+	
+	public String enviarDatosDivisor (int cDividendo, int cDivisor){
+		String respuesta = divisores.rDivisores(cDividendo, cDivisor) ;
+		return respuesta;	
 	}
 
 }
