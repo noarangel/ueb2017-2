@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Conversor de Unidades/src"/>
+	<classpathentry kind="src" path="Gauss/src"/>
+	<classpathentry kind="src" path="ProgramacionI/LucasianLabTareas/src"/>
+	<classpathentry kind="src" path="ProgramaDiscretas/src"/>
+	<classpathentry kind="src" path="Swing_Programacion/src"/>
+	<classpathentry kind="output" path="Conversor de Unidades/bin"/>
+</classpath>
