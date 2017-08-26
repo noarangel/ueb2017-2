@@ -22,16 +22,16 @@ public class ControllerGauss {
 	 * Función de simplificación
 	 */
 	public void simplificacionGauss() {
-		int paso = 1;										// Contador para pasos
-		this.vista.bienvenidaGauss();						// Mensaje de bienvenida
+		int paso = 1;											// Contador para pasos
+		this.vista.bienvenidaGauss();							// Mensaje de bienvenida
 		
 		this.matriz = new MatrizGauss(vista.pedirDimension()); 	// Pedir dimension del sistema e instanciar la matriz
 		vista.print("\nMatriz sin datos: ");
-		this.vista.print(matriz.printMatriz());				// Imprimir la matriz inicial
+		this.vista.print(matriz.printMatriz());					// Imprimir la matriz inicial
 
 		// Pedir todas las filas del sistema
 		for (int iFila = 0; iFila < this.matriz.getDim(); iFila++) {
-			this.matriz.setFila(iFila, this.vista.pedirFila(this.matriz.getDim(), iFila));
+			this.matriz.setFila(iFila, this.vista.pedirFilaGauss(this.matriz.getDim(), iFila));
 		}
 		vista.print("\nMatriz con datos: ");
 		this.vista.print(this.matriz.printMatriz());		// Imprimir la matriz llena

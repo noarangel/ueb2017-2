@@ -3,7 +3,7 @@ package controlador;
 import matrix.Matriz;
 import vista.Prints;
 
-public class ControllerSuma {
+public class ControllerResta {
 
 	Prints vista;
 	Matriz matrizA;
@@ -16,7 +16,7 @@ public class ControllerSuma {
 	/*
 	 * Instanciamos la vista
 	 */
-	public ControllerSuma() {
+	public ControllerResta() {
 		this.vista = new Prints();
 	}
 
@@ -32,9 +32,9 @@ public class ControllerSuma {
 
 	public void inicializarA() {
 		vista.bienvenidaNuevaMatriz();
-
+		
 		// Imprimir la matriz inicial
-		this.vista.print(this.matrizA.printMatriz());
+		this.vista.print(this.matrizA.printMatriz()); 
 
 		// Pedir todas las filas del sistema
 		for (int iFila = 0; iFila < this.matrizA.getDimX(); iFila++) {
@@ -45,9 +45,9 @@ public class ControllerSuma {
 
 	public void inicializarB() {
 		vista.bienvenidaNuevaMatriz();
-
+		
 		// Imprimir la matriz inicial
-		this.vista.print(this.matrizB.printMatriz());
+		this.vista.print(this.matrizB.printMatriz()); 
 
 		// Pedir todas las filas del sistema
 		for (int iFila = 0; iFila < this.matrizB.getDimX(); iFila++) {
@@ -57,16 +57,16 @@ public class ControllerSuma {
 	}
 
 	/*
-	 * Controlador de suma
+	 * Controlador de multiplicacion
 	 */
-	public void sumar() {
-		this.vista.bienvenidaSuma(); // Mensaje de bienvenida
+	public void restar() {
+		this.vista.bienvenidaResta(); // Mensaje de bienvenida
 		this.iniciarLasMatrices(); // iniciamos las dimensiones
 
 		this.inicializarA();
 		this.inicializarB();
 
-		this.matrizA.sumar(this.matrizB, this.matrizC);
+		this.matrizA.restar(this.matrizB, this.matrizC);
 
 		this.vista.respuesta();
 		this.vista.print(this.matrizC.printMatriz());
