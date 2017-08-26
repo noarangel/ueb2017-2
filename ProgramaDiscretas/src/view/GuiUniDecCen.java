@@ -29,6 +29,7 @@ public class GuiUniDecCen extends JPanel {
 
 	public GuiUniDecCen(){
 		
+		
 		this.setLayout(new BorderLayout());
 		
 		//Instancias
@@ -78,9 +79,14 @@ public class GuiUniDecCen extends JPanel {
 					 throw new EmptyStackException();
 				}else {
 					int i = Integer.parseInt(ingreso);
+					if (i < 100) {
+						throw new EmptyStackException();
+					}
 				}
 				
 				resultado.setText(sith1.enviarDatosUDC(ingreso));
+				numeroV.setText(null);
+
 				
 			}catch (Exception w) {
 				JOptionPane.showMessageDialog(null, "Valor incorrecto, por favor, intentelo de nuevo");
