@@ -85,10 +85,8 @@ public class GuiUniDecCen extends JPanel {
 				}
 				
 				resultado.setText(sith1.enviarDatosUDC(ingreso));
-<<<<<<< HEAD
 				numeroV.setText(null);
-=======
->>>>>>> 96a8339c2599d8edbc6a24cc09c758e7870ff7c4
+
 				
 			}catch (Exception w) {
 				JOptionPane.showMessageDialog(null, "Valor incorrecto, por favor, intentelo de nuevo");

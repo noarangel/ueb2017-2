@@ -1,20 +1,20 @@
 package controlador;
 
-import matrix.Matriz;
+import matrix.MatrizGauss;
 import vista.Prints;
 
 /*
  * Clase que orquesta las demás y ejecuta la lógica de simplificación de Gauss
  */
-public class Controller {
+public class ControllerGauss {
 
 	Prints vista;
-	Matriz matriz;
+	MatrizGauss matriz;
 
 	/*
 	 * Instanciamos la vista
 	 */
-	public Controller() {
+	public ControllerGauss() {
 		this.vista = new Prints();
 	}
 
@@ -23,9 +23,9 @@ public class Controller {
 	 */
 	public void simplificacionGauss() {
 		int paso = 1;										// Contador para pasos
-		this.vista.bienvenida();							// Mensaje de bienvenida
+		this.vista.bienvenidaGauss();						// Mensaje de bienvenida
 		
-		this.matriz = new Matriz(vista.pedirDimension()); 	// Pedir dimension del sistema e instanciar la matriz
+		this.matriz = new MatrizGauss(vista.pedirDimension()); 	// Pedir dimension del sistema e instanciar la matriz
 		vista.print("\nMatriz sin datos: ");
 		this.vista.print(matriz.printMatriz());				// Imprimir la matriz inicial
 

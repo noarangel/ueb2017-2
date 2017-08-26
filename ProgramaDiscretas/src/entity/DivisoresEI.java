@@ -11,15 +11,19 @@ public class DivisoresEI {
 		String sResiduo = "";
 		
 		if (residuo == 0) {
+			
 			sCociente = "El cociente es: " + cociente + "\n";
 			sResiduo = "El residuo es: " + residuo;
-			respuesta = "La división es exacta.\n" + sCociente + sResiduo;
+			respuesta = "La división es exacta. \n" + sCociente + sResiduo;
 			
-		}else 
+		}
+		
+		if(residuo > 0) {
+			
 			sCociente = "El cociente es: " + cociente + "\n";
 			sResiduo = "El residuo es: " + residuo;
-			respuesta = "La división es inexacta. \n" + sCociente + sResiduo;
-			
+			respuesta = "La división es inexacta.\n" + sCociente + sResiduo;
+		}
 			
 		return respuesta;
 	}

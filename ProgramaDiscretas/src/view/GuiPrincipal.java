@@ -23,7 +23,7 @@ public class GuiPrincipal extends JFrame {
 		
 		setBounds(400, 200, widthMyScreen / 2, heightMyScreen / 2);
 		setTitle("Pagina Principal");
-		setResizable(true);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Lienzos
@@ -52,7 +52,7 @@ public class GuiPrincipal extends JFrame {
 
 			setLayout(new GridLayout(1, 2));
 			JPanel opcionesL = new JPanel(new BorderLayout());
-			opcionesL.setLayout(new GridLayout(8, 1));
+			opcionesL.setLayout(new GridLayout(8, 1, 20, 0));
 			
 			opcionesL.add(udc);
 			opcionesL.add(divisor);
@@ -67,6 +67,11 @@ public class GuiPrincipal extends JFrame {
 			
 			udc.addActionListener(this);
 			divisor.addActionListener(this);
+			divisores.addActionListener(this);
+			mcd.addActionListener(this);
+			mcm.addActionListener(this);
+			conversorBD.addActionListener(this);
+			conversorDB.addActionListener(this);
 
 		}
 
@@ -86,6 +91,49 @@ public class GuiPrincipal extends JFrame {
 				dinamico.removeAll();
 				GuiDivisionEI divisor = new GuiDivisionEI();
 				dinamico.add(divisor);
+				this.add(dinamico, BorderLayout.CENTER);
+				dinamico.updateUI();
+				
+			}
+			
+			if(botonPulsado == divisores) {
+				dinamico.removeAll();
+				GuiDivisores divs = new GuiDivisores();
+				dinamico.add(divs);
+				this.add(dinamico, BorderLayout.CENTER);
+				dinamico.updateUI();
+				
+			}
+			
+			if (botonPulsado == mcd) {
+				dinamico.removeAll();
+				GuiEuclidiano mcdEu = new GuiEuclidiano();
+				dinamico.add(mcdEu);
+				this.add(dinamico, BorderLayout.CENTER);
+				dinamico.updateUI();
+
+			}
+			
+			if (botonPulsado == mcm) {
+				dinamico.removeAll();
+				GuiMinimoCM minimoCM = new GuiMinimoCM();
+				dinamico.add(minimoCM);
+				this.add(dinamico, BorderLayout.CENTER);
+				dinamico.updateUI();
+			}
+			
+			if (botonPulsado == conversorBD) {
+				dinamico.removeAll();
+				GuiBinToDec decimalBoI = new GuiBinToDec();
+				dinamico.add(decimalBoI);
+				this.add(dinamico, BorderLayout.CENTER);
+				dinamico.updateUI();				
+			}
+			
+			if (botonPulsado == conversorDB) {
+				dinamico.removeAll();
+				GuiDecToBin decimalToB = new GuiDecToBin();
+				dinamico.add(decimalToB);
 				this.add(dinamico, BorderLayout.CENTER);
 				dinamico.updateUI();
 				

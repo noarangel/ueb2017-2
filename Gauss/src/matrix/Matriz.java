@@ -1,102 +1,69 @@
 package matrix;
 
-import java.util.List;
-
-/*
- * Esta clase se encarga de las operaciones directas sobre la matriz.
- * Al igual que generar los strings de impresión por partalla de la matriz
- */
 public class Matriz {
 
-	
-	int DIM;				// dimension del sistema N x N+1
-	Double[][] matriz;		// Puntero a la matriz requiere Double para tamaño dinámico
+	int dimX; // numero de columnas
+	int dimY; // numero de filas
+
+	Double[][] matriz; // Puntero a la matriz requiere Double para tamaño dinámico
 
 	/*
-	 * Constructor: requiere el tamaño N para la dimensión de la matriz
+	 * Constructor: requiere los tamanños de la matriz
 	 */
-	public Matriz(int dim) {
-		this.DIM = dim;
-		this.matriz = new Double[this.DIM][this.DIM + 1];
+	public Matriz(int dimX, int dimY) {
+		this.dimX = dimX;
+		this.dimY = dimY;
+		this.matriz = new Double[this.dimX][this.dimY];
 
-		for (int iFila = 0; iFila < this.DIM; iFila++) {
-			for (int iColumna = 0; iColumna <= this.DIM; iColumna++) {
+		for (int iFila = 0; iFila < this.dimY; iFila++) {
+			for (int iColumna = 0; iColumna < this.dimX; iColumna++) {
 				this.matriz[iFila][iColumna] = new Double(0);
 			}
 		}
 	}
 
 	/*
-	 * Función de retorno de la dimensión
+	 * Función de retorno de la dimensión X
 	 */
-	public int getDim() {
-		return this.DIM;
+	public int getDimX() {
+		return this.dimX;
+	}
+
+	/*
+	 * Función de retorno de la dimensión Y
+	 */
+	public int getDimY() {
+		return this.dimY;
+	}
+	
+	public double getValue(int x, int y) {
+		return this.matriz[x][y].doubleValue();
+	}
+	
+	/*
+	 * Función de retorno de la dimensión Y
+	 */
+	public void setValue(int x,int y, double value) {
+		this.matriz[x][y] = new Double(value);
 	}
 
 	/*
 	 * Esta función llena la matriz una fila a la vez
 	 */
 	public void setFila(int posicion, Double[] fila) {
-		for (int iColumna = 0; iColumna <= this.DIM; iColumna++) {
+		for (int iColumna = 0; iColumna <= this.dimY; iColumna++) {
 			this.matriz[posicion][iColumna] = fila[iColumna];
 		}
 	}
 
-	/*
-	 * Detectamos el primer valor no cero de la columna y retornamos su número de fila
-	 * Si todos son cero, retornamos -1
-	 */
-	public int getFilaPivote(int iColumna) {
-		Double ZERO = new Double(0);
-		for (int iFila = iColumna; iFila < this.DIM; iFila++) {
-			if (!this.matriz[iColumna][iFila].equals(ZERO)) {
-				return iFila;
+	public void sumar(Matriz otra, Matriz respuesta) {
+		for (int iFila = 0; iFila < this.dimY; iFila++) {
+			for (int iColumna = 0; iColumna < this.dimX; iColumna++) {
+				respuesta.setValue(iFila, iColumna, this.getValue(iFila,iColumna) +
+						otra.getValue(iFila,iColumna));
 			}
 		}
-		return -1;
 	}
-
-	/*
-	 * Intercambiamos dos filas de la matriz, pensado para columnas con cero en el pivote
-	 */
-	public void swapFilas(int iFila, int pivote) {
-		Double[] tmp = new Double[this.DIM + 1];
-
-		for (int iColumna = 0; iColumna <= this.DIM; iColumna++) {
-			tmp[iColumna] = matriz[iFila][iColumna];
-			matriz[iFila][iColumna] = matriz[pivote][iColumna];
-			matriz[pivote][iColumna] = tmp[iColumna];
-		}
-	}
-
-	/*
-	 * Hallamos el inverso del pivote y simplificamos la fila
-	 */
-	public double simplificarFila(int index) {
-		double inverso = 1 / this.matriz[index][index].doubleValue();
-		for (int iColumna = index; iColumna <= this.DIM; iColumna++) {
-			this.matriz[index][iColumna] = new Double(this.matriz[index][iColumna].doubleValue() * inverso);
-		}
-		return inverso;
-	}
-
-	/*
-	 * Multiplicamos una fila con lo necesario para anular las columnas del pivote y se lo sumamos
-	 */
-	public double reduce(int index, int iFila) {
-		double pivote = -1 * this.matriz[iFila][index].doubleValue() / this.matriz[index][index].doubleValue();
-
-		if (pivote == 0) {
-			return 0;
-		}
-		for (int iColumna = index; iColumna <= this.DIM; iColumna++) {
-			if (iFila != index) {
-				this.matriz[iFila][iColumna] = new Double(this.matriz[iFila][iColumna].doubleValue()
-						+ this.matriz[index][iColumna].doubleValue() * pivote);
-			}
-		}
-		return pivote;
-	};
 
 	/*
 	 * Auxiliar para generar cada string de filas de la matriz
@@ -104,10 +71,10 @@ public class Matriz {
 	public String printFila(int iFila) {
 		String cadena = " [ ";
 
-		for (int iColumna = 0; iColumna <= this.DIM; iColumna++) {
+		for (int iColumna = 0; iColumna < this.dimX; iColumna++) {
 			cadena += this.matriz[iFila][iColumna];
 
-			if (iColumna != this.DIM) {
+			if (iColumna != this.dimX) {
 				cadena += ", ";
 			}
 
@@ -115,14 +82,14 @@ public class Matriz {
 
 		return cadena += " ]\n";
 	}
-	
+
 	/*
 	 * Genera el string necesario para imprimir la matriz
 	 */
 	public String printMatriz() {
 		String cadena = "\n[\n";
 
-		for (int iFila = 0; iFila < this.DIM; iFila++) {
+		for (int iFila = 0; iFila < this.dimY; iFila++) {
 			cadena += this.printFila(iFila);
 		}
 
