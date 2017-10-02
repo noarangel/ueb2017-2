@@ -1,23 +1,24 @@
 package integracion;
 
 public class UsuarioDTO {
-	
+
 	// Atributos
-	
+
 	private String usuario, clave;
-	
+
 	// Constructores
 	
-	public UsuarioDTO(){
-		
-	}	
-	public UsuarioDTO (String aUsuario, String aClave){
-		this.usuario = aUsuario;
-		this.clave = aClave;		
+	public UsuarioDTO() {
+
 	}
-	
-	// Getter´s y Setter´s
-	
+
+	public UsuarioDTO(String aUsuario, String aClave) {
+		this.usuario = aUsuario;
+		this.clave = aClave;
+	}
+
+	// Getters y Setters
+
 	public String getUsuario() {
 		return usuario;
 	}

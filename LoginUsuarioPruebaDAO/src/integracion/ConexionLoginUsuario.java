@@ -30,10 +30,10 @@ public class ConexionLoginUsuario {
 		this.existFile();
 	}
 
-	// Métodos
+	// Metodos
 	public boolean existFile() {
 		boolean bandera = true;
-		
+
 		File f = new File(ruta);
 		if (!f.isDirectory()) {
 			f.getParentFile().mkdirs();
