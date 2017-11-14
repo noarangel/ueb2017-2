@@ -78,6 +78,7 @@ public class GuiPrincipalA  extends JFrame{
 		}
 	}
 	
+	//Mensajes
 	public class GuiMensajesAdmin extends JPanel {
 
 		public JTextArea campoTexto;
